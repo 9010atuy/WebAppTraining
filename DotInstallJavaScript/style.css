@@ -1,21 +1,31 @@
 body {
-    display: flex;
-    flex-wrap: wrap;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+div {
+  text-align: center;
+  line-height: 100px;
 }
 
 .btn {
-    background: skyblue;
-    color:white;
-    height: 100px;
-    width: 100px;
-    margin: 5px;
-    cursor: pointer;
-    transition: all 0.5s;
+  background: skyblue;
+  color: white;
+  height: 100px;
+  width: 100px;
+  margin: 5px;
+  cursor: pointer;
+  transition: all 0.5s;
 }
 
 .circle {
-    background: pink;
-    border-radius: 50%;
-    transition: all 0.5s;
-    transform: rotate(360deg);
+  background: pink;
+  border-radius: 50%;
+  transition: all 0.5s;
+  transform: rotate(360deg);
+}
+
+.incorrect_animation {
+  transform: scale(0.9);
+  transform-origin: center;
 }

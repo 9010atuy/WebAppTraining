@@ -1,13 +1,19 @@
-const ELEMENT_COUNT = 10;
-
-for (var i = 0; i < ELEMENT_COUNT; i++) {
- 
-    var div = document.createElement('div');
-    div.classList.add('btn');
-    var targetid = 'target' + i;
-    div.setAttribute('id', targetid);
-    div.addEventListener('click', () => {
-        div.classList.toggle('circle');
-    })
-    document.body.appendChild(div);
+"use strict";
+const element_count = 9;
+const correct_number = Math.floor(Math.random() * element_count + 1);
+for (let i = 0; i < element_count; i++) {
+  let div = document.createElement("div");
+  div.classList.add("btn");
+  if (i == correct_number) {
+    div.addEventListener("click", () => {
+      div.classList.add("circle");
+      div.innerHTML = "Win!";
+    });
+  } else {
+    div.addEventListener("click", () => {
+      div.classList.add("incorrect_animation");
+      div.innerHTML = "Lose";
+    });
+  }
+  document.body.appendChild(div);
 }
