@@ -7,7 +7,7 @@ let flag = true;
 
 while (flag) {
   const input = prompt(question);
-  if (input == correctAnswer) {
+  if (input === correctAnswer) {
     alert(correct);
     flag = false;
   } else {
