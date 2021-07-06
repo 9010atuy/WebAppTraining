@@ -1,29 +1,29 @@
-const list_title = `
+const listTitle = `
 ======================
 現在持っているタスクの一覧
 ======================`;
 
-const type_message =
+const typeMessage =
   "「確認、追加、削除、終了」の4つのいずれかを入力してください";
 
-let task_list = ["掃除", "買い物", "散歩"];
+let taskList = ["掃除", "買い物", "散歩"];
 
-showTaskList(task_list);
+showTaskList(taskList);
 
 let flag = true;
 while (flag === true) {
-  const new_task = prompt("タスクを入力してください");
-  if (new_task) {
-    task_list.push(new_task);
+  const newTask = prompt("タスクを入力してください");
+  if (newTask) {
+    taskList.push(newTask);
     flag = false;
   }
 }
-showTaskList(task_list);
-const type = prompt(type_message);
+showTaskList(taskList);
+const type = prompt(typeMessage);
 
-function showTaskList(task_list) {
-  console.log(list_title);
-  for (let i = 0; i < task_list.length; i++) {
-    console.log(`${i}：${task_list[i]}`);
-  }
+function showTaskList(taskList) {
+  console.log(listTitle);
+  taskList.forEach((task, index) => {
+    console.log(`${index} : ${task}`);
+  });
 }
