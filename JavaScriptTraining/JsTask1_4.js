@@ -13,13 +13,13 @@ const task2 = { category: "買い物", content: "牛乳を買う" };
 const task3 = { category: "運動", content: "散歩する" };
 
 let taskList = [task1, task2, task3];
-// console.log(taskList.get());
 showTaskList(taskList);
 const newTask = inputTask();
 taskList = addTask(newTask, taskList);
 showTaskList(taskList);
 const type = prompt(typeMessage);
 
+// 現在のタスクリストを表示する
 function showTaskList(taskList) {
   console.log(listTitle);
   taskList.forEach((task, index) => {
@@ -27,6 +27,7 @@ function showTaskList(taskList) {
   });
 }
 
+// タスクを作成する
 function inputTask() {
   let flag = true;
   let task;
@@ -41,6 +42,7 @@ function inputTask() {
   return task;
 }
 
+// タスクを追加する
 function addTask(newTask, taskList) {
   if (newTask.category && newTask.content) {
     taskList.push(newTask);
