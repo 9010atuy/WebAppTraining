@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ja-JP">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FizzBuzz</title>
+</head>
+
+<body>
+    <h1>FizzBuzz問題</h1>
+    <table>
+        <tr>
+            <td>
+                <label for="">FizzNum:</label>
+            </td>
+            <td>
+                <input type="text" name="fizz" id="fizz" placeholder="整数値を入力してください">
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label for="">BuzzNum:</label>
+            </td>
+            <td>
+                <input type="text" name="buzz" id="buzz" placeholder="整数値を入力してください">
+            </td>
+        </tr>
+    </table>
+    <input type="button" value="実行" onclick="execFizzBuzz()">
+    <div id="fizzbuzz_result">
+
+    </div>
+    <script src="./script.js"></script>
+</body>
+
+</html>
