@@ -4,15 +4,15 @@ const listTitle = `
 ======================`;
 
 const typeMessage =
-  "「確認、追加、削除、終了」の4つのいずれかを入力してください";
+  '「確認、追加、削除、終了」の4つのいずれかを入力してください';
 
-const addMessage = "新しいタスクを追加しました";
+const additionMessage = '新しいタスクを追加しました';
 
-const task1 = { category: "掃除", content: "机を片付ける" };
-const task2 = { category: "買い物", content: "牛乳を買う" };
-const task3 = { category: "運動", content: "散歩する" };
-
-let taskList = [task1, task2, task3];
+let taskList = [
+  { category: '掃除', content: '机を片付ける' },
+  { category: '買い物', content: '牛乳を買う' },
+  { category: '運動', content: '散歩する' },
+];
 showTaskList(taskList);
 const newTask = inputTask();
 taskList = addTask(newTask, taskList);
@@ -32,10 +32,10 @@ function inputTask() {
   let flag = true;
   let task;
   while (flag === true) {
-    const content = prompt("タスクを入力してください");
-    const category = prompt("ジャンルを入力してください");
+    const content = prompt('タスクを入力してください');
+    const category = prompt('ジャンルを入力してください');
     if (content && category) {
-      task = { category: category, content: content };
+      task = { category, content };
       flag = false;
     }
   }
@@ -49,6 +49,6 @@ function addTask(newTask, taskList) {
     alert(addMessage);
     return taskList;
   } else {
-    console.log("[warn]   ジャンルもしくはタスクが入力されていません。");
+    console.log('[warn]   ジャンルもしくはタスクが入力されていません。');
   }
 }
