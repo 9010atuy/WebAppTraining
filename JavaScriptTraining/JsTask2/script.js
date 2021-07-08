@@ -2,6 +2,7 @@ const loopCount = 99;
 const outputArea = document.getElementById('fizzbuzz_result');
 const inputFizz = document.getElementById('fizz');
 const inputBuzz = document.getElementById('buzz');
+const execButton = document.getElementById('exec');
 const fizzMessage = 'Fizz';
 const buzzMessage = 'Buzz';
 const fizzBuzzMessage = 'FizzBuzz';
@@ -61,3 +62,7 @@ function execFizzBuzz() {
     createDivElement('整数値を入力してください');
   }
 }
+
+execButton.addEventListener('click', () => {
+  execFizzBuzz();
+});
