@@ -2,7 +2,6 @@
 
 const additionBtn = document.getElementById('add_task');
 const tBody = document.getElementById('todo_list');
-let todoId = 1;
 let todos = [];
 
 function clearChildElements(pElem) {
@@ -11,12 +10,21 @@ function clearChildElements(pElem) {
   }
 }
 
+function addTdToDoId(todoId) {
+  const td = document.createElement('td');
+  const lbl = document.createElement('label');
+  lbl.id = 'id';
+  lbl.textContent = todoId;
+  td.appendChild(lbl);
+  return td;
+}
+
 // add delete button ToDo
 function addTdDeleteBtn() {
   const td = document.createElement('td');
   const btn = document.createElement('input');
   btn.type = 'button';
-  btn.todoI = 'delToDo';
+  btn.id = 'del';
   btn.value = '削除';
   td.appendChild(btn);
   return td;
@@ -25,8 +33,11 @@ function addTdDeleteBtn() {
 // display ToDos
 function displayTodos() {
   clearChildElements(tBody);
+  let todoId = 0;
   todos.forEach((todo, index) => {
     const tr = document.createElement('tr');
+    // set Id
+    tr.appendChild(addTdToDoId(todoId));
     // set ToDo
     for (const property in todo) {
       const td = document.createElement('td');
@@ -47,6 +58,8 @@ function displayTodos() {
     // setDelBtn
     tr.appendChild(addTdDeleteBtn());
 
+    todoId++;
+
     tBody.appendChild(tr);
   });
 }
@@ -54,14 +67,12 @@ function displayTodos() {
 function addTask() {
   const task_input = document.getElementById('input_task');
   if (task_input.value !== '') {
-    const id = todoId;
     const content = task_input.value;
     const status = '作業中';
-    const todo = { todoId, content, status };
+    const todo = { content, status };
     todos.push(todo);
     displayTodos();
     task_input.value = '';
-    todoId++;
   }
 }
 
