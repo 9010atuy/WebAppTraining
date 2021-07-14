@@ -2,7 +2,8 @@
 
 const additionBtn = document.getElementById('add_task');
 const tBody = document.getElementById('todo_list');
-let todos = [];
+// 配列は基本const
+const todos = [];
 
 function clearChildElements(pElem) {
   while (pElem.firstChild) {
@@ -67,9 +68,10 @@ function displayTodos() {
 function addTask() {
   const task_input = document.getElementById('input_task');
   if (task_input.value !== '') {
-    const content = task_input.value;
-    const status = '作業中';
-    const todo = { content, status };
+    const todo = {
+      content: task_input.value,
+      status: '作業中',
+    };
     todos.push(todo);
     displayTodos();
     task_input.value = '';
