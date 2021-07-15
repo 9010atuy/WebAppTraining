@@ -14,19 +14,22 @@ function clearChildElements(pElem) {
 function addTdToDoId(todoId) {
   const td = document.createElement('td');
   const lbl = document.createElement('label');
-  lbl.id = 'id';
+  lbl.classList.add('id');
   lbl.textContent = todoId;
   td.appendChild(lbl);
   return td;
 }
 
 // add delete button ToDo
-function addTdDeleteBtn() {
+function addTdDeleteBtn(todoId) {
   const td = document.createElement('td');
   const btn = document.createElement('input');
   btn.type = 'button';
-  btn.id = 'del';
+  btn.classList.add('del');
   btn.value = '削除';
+  btn.addEventListener('click', () => {
+    delTask(todoId);
+  });
   td.appendChild(btn);
   return td;
 }
@@ -57,7 +60,7 @@ function displayTodos() {
       tr.appendChild(td);
     }
     // setDelBtn
-    tr.appendChild(addTdDeleteBtn());
+    tr.appendChild(addTdDeleteBtn(todoId));
 
     todoId++;
 
@@ -76,6 +79,12 @@ function addTask() {
     displayTodos();
     task_input.value = '';
   }
+}
+
+function delTask(todoId) {
+  clearChildElements(tBody);
+  todos.splice(todoId, 1);
+  displayTodos();
 }
 
 additionBtn.addEventListener('click', () => {
