@@ -5,23 +5,23 @@ const tBody = document.getElementById('todo_list');
 // 配列は基本const
 const todos = [];
 
-function clearChildElements(pElem) {
+const clearChildElements = (pElem) => {
   while (pElem.firstChild) {
     pElem.removeChild(pElem.firstChild);
   }
-}
+};
 
-function addTdToDoId(todoId) {
+const addTdToDoId = (todoId) => {
   const td = document.createElement('td');
   const lbl = document.createElement('label');
   lbl.classList.add('id');
   lbl.textContent = todoId;
   td.appendChild(lbl);
   return td;
-}
+};
 
 // add delete button ToDo
-function addTdDeleteBtn(todoId) {
+const addTdDeleteBtn = (todoId) => {
   const td = document.createElement('td');
   const btn = document.createElement('input');
   btn.type = 'button';
@@ -32,10 +32,10 @@ function addTdDeleteBtn(todoId) {
   });
   td.appendChild(btn);
   return td;
-}
+};
 
 // display ToDos
-function displayTodos() {
+const displayTodos = () => {
   clearChildElements(tBody);
   let todoId = 0;
   todos.forEach((todo, index) => {
@@ -66,9 +66,9 @@ function displayTodos() {
 
     tBody.appendChild(tr);
   });
-}
+};
 
-function addTask() {
+const addTask = () => {
   const task_input = document.getElementById('input_task');
   if (task_input.value !== '') {
     const todo = {
@@ -79,13 +79,13 @@ function addTask() {
     displayTodos();
     task_input.value = '';
   }
-}
+};
 
-function delTask(todoId) {
+const delTask = (todoId) => {
   clearChildElements(tBody);
   todos.splice(todoId, 1);
   displayTodos();
-}
+};
 
 additionBtn.addEventListener('click', () => {
   addTask();
