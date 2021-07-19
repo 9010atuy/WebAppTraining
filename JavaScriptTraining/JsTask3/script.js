@@ -5,13 +5,13 @@ const tBody = document.getElementById('todo_list');
 // 配列は基本const
 const todos = [];
 
-const clearChildElements = (pElem) => {
+const clearChildElements = pElem => {
   while (pElem.firstChild) {
     pElem.removeChild(pElem.firstChild);
   }
 };
 
-const addTdToDoId = (todoId) => {
+const addTdToDoId = todoId => {
   const td = document.createElement('td');
   const lbl = document.createElement('label');
   lbl.classList.add('id');
@@ -21,7 +21,7 @@ const addTdToDoId = (todoId) => {
 };
 
 // add delete button ToDo
-const addTdDeleteBtn = (todoId) => {
+const addTdDeleteBtn = todoId => {
   const td = document.createElement('td');
   const btn = document.createElement('input');
   btn.type = 'button';
@@ -81,7 +81,7 @@ const addTask = () => {
   }
 };
 
-const delTask = (todoId) => {
+const delTask = todoId => {
   clearChildElements(tBody);
   todos.splice(todoId, 1);
   displayTodos();
