@@ -11,24 +11,24 @@ const clearChildElements = pElem => {
   }
 };
 
-const addTdToDoId = todoId => {
+const addTdToDoId = index => {
   const td = document.createElement('td');
   const lbl = document.createElement('label');
   lbl.classList.add('id');
-  lbl.textContent = todoId;
+  lbl.textContent = index;
   td.appendChild(lbl);
   return td;
 };
 
 // add delete button ToDo
-const addTdDeleteBtn = todoId => {
+const addTdDeleteBtn = index => {
   const td = document.createElement('td');
   const btn = document.createElement('input');
   btn.type = 'button';
   btn.classList.add('del');
   btn.value = '削除';
   btn.addEventListener('click', () => {
-    delTask(todoId);
+    delTask(index);
   });
   td.appendChild(btn);
   return td;
@@ -37,11 +37,10 @@ const addTdDeleteBtn = todoId => {
 // display ToDos
 const displayTodos = () => {
   clearChildElements(tBody);
-  let todoId = 0;
   todos.forEach((todo, index) => {
     const tr = document.createElement('tr');
     // set Id
-    tr.appendChild(addTdToDoId(todoId));
+    tr.appendChild(addTdToDoId(index));
     // set ToDo
     for (const property in todo) {
       const td = document.createElement('td');
@@ -50,6 +49,9 @@ const displayTodos = () => {
         btn.type = 'button';
         btn.todoI = property;
         btn.value = todo[property];
+        btn.addEventListener('click', () => {
+          toggleStatus(index);
+        });
         td.appendChild(btn);
       } else {
         const lbl = document.createElement('label');
@@ -60,9 +62,7 @@ const displayTodos = () => {
       tr.appendChild(td);
     }
     // setDelBtn
-    tr.appendChild(addTdDeleteBtn(todoId));
-
-    todoId++;
+    tr.appendChild(addTdDeleteBtn(index));
 
     tBody.appendChild(tr);
   });
@@ -81,9 +81,20 @@ const addTask = () => {
   }
 };
 
-const delTask = todoId => {
+const delTask = index => {
   clearChildElements(tBody);
-  todos.splice(todoId, 1);
+  todos.splice(index, 1);
+  displayTodos();
+};
+
+const toggleStatus = index => {
+  clearChildElements(tBody);
+  const status = todos[index].status;
+  if (status === '作業中') {
+    todos[index].status = '完了';
+  } else if (status === '完了') {
+    todos[index].status = '作業中';
+  }
   displayTodos();
 };
 
