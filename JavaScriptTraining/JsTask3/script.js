@@ -2,8 +2,10 @@
 
 const additionBtn = document.getElementById('add_task');
 const tBody = document.getElementById('todo_list');
+const statusOption = document.getElementsByName('status');
 // 配列は基本const
 const todos = [];
+let checkedStatus = 'すべて';
 
 const clearChildElements = pElem => {
   while (pElem.firstChild) {
@@ -38,6 +40,16 @@ const addTdDeleteBtn = index => {
 const displayTodos = () => {
   clearChildElements(tBody);
   todos.forEach((todo, index) => {
+    const status = todo.status;
+    if (checkedStatus === 'doing') {
+      if (status !== '作業中') {
+        return true;
+      }
+    } else if (checkedStatus === 'done') {
+      if (status !== '完了') {
+        return true;
+      }
+    }
     const tr = document.createElement('tr');
     // set Id
     tr.appendChild(addTdToDoId(index));
@@ -47,7 +59,7 @@ const displayTodos = () => {
       if (property === 'status') {
         const btn = document.createElement('input');
         btn.type = 'button';
-        btn.todoI = property;
+        btn.classList.add(property);
         btn.value = todo[property];
         btn.addEventListener('click', () => {
           toggleStatus(index);
@@ -55,7 +67,7 @@ const displayTodos = () => {
         td.appendChild(btn);
       } else {
         const lbl = document.createElement('label');
-        lbl.todoI = property;
+        lbl.classList.add(property);
         lbl.textContent = todo[property];
         td.appendChild(lbl);
       }
@@ -100,4 +112,24 @@ const toggleStatus = index => {
 
 additionBtn.addEventListener('click', () => {
   addTask();
+});
+
+const getRadioValue = name => {
+  let result = '';
+  const radioElems = document.getElementsByName(name);
+  radioElems.forEach(elem => {
+    if (elem.checked) {
+      result = elem.id;
+      return false;
+    }
+  });
+  return result;
+};
+
+statusOption.forEach(e => {
+  e.addEventListener('click', () => {
+    checkedStatus = getRadioValue('status');
+    clearChildElements(tBody);
+    displayTodos();
+  });
 });
