@@ -5,7 +5,7 @@ const tBody = document.getElementById('todo_list');
 const statusOption = document.getElementsByName('status');
 // 配列は基本const
 const todos = [];
-let checkedStatus = 'すべて';
+let checkedStatus;
 
 const clearChildElements = pElem => {
   while (pElem.firstChild) {
