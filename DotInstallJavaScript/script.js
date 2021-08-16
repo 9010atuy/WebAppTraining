@@ -29,3 +29,30 @@ console.log(laptopPro13);
 // del property
 delete laptopPro13.color;
 console.log(laptopPro13);
+
+// spread => object
+const otherProps = {
+  color: 'dark gray',
+  keybord: 'US',
+};
+
+const laptopPro16 = {
+  name: 'Macbook Pro 13',
+  price: '$130',
+  stock: 20,
+  ...otherProps,
+};
+
+console.log(laptopPro16);
+
+const { name, price, stock, color, keybord } = laptopPro16;
+console.log(name);
+console.log(price);
+console.log(stock);
+console.log(color);
+console.log(keybord);
+
+const pro16Keys = Object.keys(laptopPro16);
+pro16Keys.forEach(key => {
+  console.log(key, laptopPro16[key]);
+});
