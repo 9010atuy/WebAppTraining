@@ -1,20 +1,16 @@
 'use strict';
 
-const dateNow = new Date();
-const year = dateNow.getFullYear();
-const month = dateNow.getMonth();
-const day = dateNow.getDay();
+const scores = [20, 30, 15];
+let sum = 0;
+scores.forEach(score => {
+  sum += score;
+});
+console.log(`sum: ${sum}`);
+const avg = sum / scores.length;
+console.log(`avg: ${avg}`);
+console.log(Math.floor(avg));
+console.log(Math.ceil(avg));
+console.log(Math.round(avg));
 
-const dateArray = [year, month, day];
-console.log(dateArray);
-
-const strDate = dateArray.join('.');
-console.log(strDate);
-
-const dArray = strDate.split('.');
-console.log(dArray);
-
-const [y, m, d] = dateArray;
-console.log(y);
-console.log(m);
-console.log(d);
+const ramdom = Math.floor(Math.random(6) * 100);
+console.log(ramdom);
