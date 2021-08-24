@@ -1,15 +1,15 @@
 'use strict';
 
-const date = new Date();
-console.log(`${date.getFullYear()}年
- ${date.getMonth() + 1}月 
- ${date.getDate()}日 
- ${date.getHours()}時 
- ${date.getMinutes()}分
- ${date.getSeconds()}秒
- ${date.getMilliseconds()}
- `);
+let i = 0;
+const showTime = () => {
+  console.log(new Date());
+  i++;
+  if (i > 2) {
+    clearInterval(intervalId);
+  }
+};
 
-const nextMonthDate = date;
-console.log(typeof nextMonthDate);
-console.log(nextMonthDate.getMonth(), nextMonthDate.getDate());
+// setInterval: 指定した関数を一定時間感覚で繰り返し呼び出す。
+const intervalId = setInterval(() => {
+  showTime();
+}, 1000);
