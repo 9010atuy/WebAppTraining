@@ -1,7 +1,15 @@
 'use strict';
 
-const max = 6;
-const min = 1;
-const dice = Math.floor(Math.random() * (max + 1 - min) + min);
+const date = new Date();
+console.log(`${date.getFullYear()}年
+ ${date.getMonth() + 1}月 
+ ${date.getDate()}日 
+ ${date.getHours()}時 
+ ${date.getMinutes()}分
+ ${date.getSeconds()}秒
+ ${date.getMilliseconds()}
+ `);
 
-console.log(dice);
+const nextMonthDate = date;
+console.log(typeof nextMonthDate);
+console.log(nextMonthDate.getMonth(), nextMonthDate.getDate());
