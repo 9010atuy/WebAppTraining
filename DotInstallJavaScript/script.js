@@ -4,12 +4,22 @@ let i = 0;
 const showTime = () => {
   console.log(new Date());
   i++;
-  if (i > 2) {
+  const timeoutId = setTimeout(showTime, 1000);
+  if (i > 5) {
+    clearTimeout(timeoutId);
+  }
+};
+
+showTime();
+
+let j = 0;
+const dice = () => {
+  console.log(Math.floor(Math.random() * 6 + 1));
+  j++;
+  console.log(`j: ${j}`);
+  if (j > 4) {
     clearInterval(intervalId);
   }
 };
 
-// setInterval: 指定した関数を一定時間感覚で繰り返し呼び出す。
-const intervalId = setInterval(() => {
-  showTime();
-}, 1000);
+const intervalId = setInterval(dice, 1000);
