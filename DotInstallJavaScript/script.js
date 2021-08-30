@@ -1,13 +1,20 @@
 'use strict';
 
-const strInput = 1;
-// const strInput = prompt('input string!');
+const posts = [
+  {
+    text: 'JavaScript勉強中',
+    likeCount: 0,
+  },
+  {
+    text: 'プログラミングはやりだすと止まらない！',
+    likeCount: 0,
+  },
+];
 
-try {
-  const upperStr = strInput.toUpperCase();
-  console.log(upperStr);
-} catch (ex) {
-  console.log(ex);
-}
+const showPost = post => {
+  console.log(`${post.text} ${post.likeCount} like!!`);
+};
 
-console.log('done');
+posts.forEach(post => {
+  showPost(post);
+});
