@@ -9,7 +9,17 @@ class Post {
   show() {
     console.log(`${this.text}    ${this.likeCount} like!!`);
   }
+
+  like() {
+    this.likeCount++;
+    console.log('you get like!!');
+    this.show();
+  }
 }
 
 const yuta = new Post('hkkb 実験中');
 yuta.show();
+yuta.like();
+yuta.like();
+yuta.like();
+yuta.like();
