@@ -15,6 +15,10 @@ class Post {
     console.log('you get like!!');
     this.show();
   }
+
+  static classInfo() {
+    console.log('show class version');
+  }
 }
 
 const yuta = new Post('hkkb 実験中');
@@ -23,3 +27,5 @@ yuta.like();
 yuta.like();
 yuta.like();
 yuta.like();
+
+Post.classInfo();
