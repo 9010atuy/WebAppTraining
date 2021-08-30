@@ -1,26 +1,15 @@
 'use strict';
 
-const posts = [
-  {
-    text: 'JavaScript勉強中',
-    likeCount: 0,
-    show() {
-      console.log(`${this.text} ${this.likeCount} like!!`);
-    },
-  },
-  {
-    text: 'プログラミングはやりだすと止まらない！',
-    likeCount: 0,
-    show() {
-      console.log(`${this.text} ${this.likeCount} like!!`);
-    },
-  },
-];
+class Post {
+  constructor(text) {
+    this.text = text;
+    this.likeCount = 0;
+  }
 
-const showPost = post => {
-  console.log(`${post.text} ${post.likeCount} like!!`);
-};
+  show() {
+    console.log(`${this.text}    ${this.likeCount} like!!`);
+  }
+}
 
-posts.forEach(post => {
-  post.show();
-});
+const yuta = new Post('hkkb 実験中');
+yuta.show();
