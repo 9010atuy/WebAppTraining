@@ -21,11 +21,26 @@ class Post {
   }
 }
 
-const yuta = new Post('hkkb 実験中');
-yuta.show();
-yuta.like();
-yuta.like();
-yuta.like();
-yuta.like();
+class SponsoredPost extends Post {
+  constructor(text, sponsored) {
+    super(text);
+    this.sponsored = sponsored;
+  }
+  show() {
+    console.log(
+      `${this.text}    ${this.likeCount} like!!    spoonsered by ${this.sponsored}`
+    );
+  }
+}
 
-Post.classInfo();
+const posts = [
+  new Post('nice to meet you!'),
+  new Post('my name is yuta'),
+  new Post("I'm 29 old"),
+  new SponsoredPost('favarite GoldenKamui', 'Young Jamp'),
+];
+
+posts.forEach(post => {
+  post.show();
+  post.like();
+});
