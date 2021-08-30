@@ -4,10 +4,16 @@ const posts = [
   {
     text: 'JavaScript勉強中',
     likeCount: 0,
+    show() {
+      console.log(`${this.text} ${this.likeCount} like!!`);
+    },
   },
   {
     text: 'プログラミングはやりだすと止まらない！',
     likeCount: 0,
+    show() {
+      console.log(`${this.text} ${this.likeCount} like!!`);
+    },
   },
 ];
 
@@ -16,5 +22,5 @@ const showPost = post => {
 };
 
 posts.forEach(post => {
-  showPost(post);
+  post.show();
 });
