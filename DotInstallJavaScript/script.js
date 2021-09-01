@@ -1,5 +1,12 @@
 'use strict';
+const button = document.getElementById('submit');
+let counter = 1;
+const clickEvent = () => {
+  const ul = document.querySelector('ul');
+  const li = document.createElement('li');
+  li.textContent = `list${counter}`;
+  ul.appendChild(li);
+  counter++;
+};
 
-const titleNode = document.getElementById('title');
-// element.dataset.<after [data-] word>
-titleNode.title = titleNode.dataset.translate;
+button.addEventListener('click', clickEvent);
