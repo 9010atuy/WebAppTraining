@@ -4,9 +4,14 @@ const doSomethingClick = () => {
   console.log('clicked');
 };
 
-const doSomething = () => {
-  console.log('action');
+const doSomething = e => {
+  console.log(e.clientX, e.clientY);
+};
+
+const keyDownEvent = e => {
+  console.log(e.key);
 };
 
 btn.addEventListener('dblclick', doSomethingClick);
 document.addEventListener('mousemove', doSomething);
+document.addEventListener('keydown', keyDownEvent);
