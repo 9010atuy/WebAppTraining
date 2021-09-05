@@ -6,3 +6,7 @@
 .my-border-style {
   border-bottom: 3px solid darkgray;
 }
+
+.done {
+  text-decoration-line: line-through;
+}

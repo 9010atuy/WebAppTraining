@@ -1,7 +1,6 @@
 'use strict';
 
-const form = document.querySelector('form');
-form.addEventListener('submit', e => {
-  e.preventDefault();
-  console.log(form);
+const ul = document.querySelector('ul');
+ul.addEventListener('click', e => {
+  e.target.classList.toggle('done');
 });
