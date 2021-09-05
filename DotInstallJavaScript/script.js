@@ -1,17 +1,15 @@
 'use strict';
-const btn = document.getElementById('submit');
-const doSomethingClick = () => {
-  console.log('clicked');
-};
 
-const doSomething = e => {
-  console.log(e.clientX, e.clientY);
-};
+const textarea = document.querySelector('textarea');
 
-const keyDownEvent = e => {
-  console.log(e.key);
-};
+textarea.addEventListener('focus', () => {
+  console.log('focused');
+});
 
-btn.addEventListener('dblclick', doSomethingClick);
-document.addEventListener('mousemove', doSomething);
-document.addEventListener('keydown', keyDownEvent);
+textarea.addEventListener('blur', () => {
+  console.log('blured');
+});
+
+textarea.addEventListener('input', e => {
+  console.log(textarea.value, textarea.value.length);
+});
