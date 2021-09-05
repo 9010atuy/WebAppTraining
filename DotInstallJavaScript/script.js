@@ -11,3 +11,22 @@ const addList = () => {
 };
 
 addBtn.addEventListener('click', addList);
+
+const ol = document.querySelector('ol');
+const radio = document.getElementsByName('input-color');
+const addRadio = document.getElementById('add-color');
+
+const addRadioInput = () => {
+  const radios = document.getElementsByName('input-color');
+  let selectedValue = '';
+  const li = document.createElement('li');
+  radios.forEach(radio => {
+    if (radio.checked) {
+      selectedValue = radio.value;
+    }
+  });
+  li.textContent = selectedValue;
+  ol.appendChild(li);
+};
+
+addRadio.addEventListener('click', addRadioInput);
