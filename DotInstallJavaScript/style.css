@@ -1,31 +1,12 @@
-body {
-  display: flex;
-  flex-wrap: wrap;
-}
-
-div {
-  text-align: center;
-  line-height: 100px;
-}
-
-.btn {
-  background: skyblue;
+.my-text-style {
+  background-color: rgb(0, 0, 0);
   color: white;
-  height: 100px;
-  width: 100px;
-  margin: 5px;
-  cursor: pointer;
-  transition: all 0.5s;
 }
 
-.circle {
-  background: pink;
-  border-radius: 50%;
-  transition: all 0.5s;
-  transform: rotate(360deg);
+.my-border-style {
+  border-bottom: 3px solid darkgray;
 }
 
-.incorrect_animation {
-  transform: scale(0.9);
-  transform-origin: center;
+.done {
+  text-decoration-line: line-through;
 }
