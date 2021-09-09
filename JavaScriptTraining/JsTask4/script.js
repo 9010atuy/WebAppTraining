@@ -15,13 +15,16 @@ const displayWelcomPage = () => {
   clearChildElements(btnContainer);
   h2.textContent = 'ようこそ！';
   message.textContent = '以下のボタンをクリック';
+  createStartButton();
+};
+
+const createStartButton = () => {
   startBtn = document.createElement('button');
   startBtn.id = 'start-button';
   startBtn.textContent = '開始';
   startBtn.addEventListener('click', quizStart);
   btnContainer.appendChild(startBtn);
 };
-
 const loading = () => {
   h2.textContent = 'クイズ取得中';
   message.textContent = '少々お待ちください。';
@@ -33,26 +36,31 @@ const quizStart = () => {
   loading();
 };
 
+async function getQuizFromApi() {
+  const res = await fetch(quizApiUrl);
+  const data = await res.json();
+  return data;
+}
+
 const getQuiz = () => {
   quizList = [];
   quizIndex = 0;
-  fetch(quizApiUrl)
-    .then(response => {
-      return response.json();
-    })
-    .then(result => {
-      convertJson2Array(result);
-      return;
-    })
-    .then(() => {
-      displayQuiz(quizIndex);
-    });
+  getQuizFromApi()
+    .then(data => convertJson2Array(data))
+    .then(() => displayQuiz(quizIndex))
+    .catch(err => connectException(err));
 };
 
 const convertJson2Array = jsonObj => {
   jsonObj.results.forEach(result => {
     quizList.push(result);
   });
+};
+
+const connectException = err => {
+  h2.textContent = 'クイズの取得に失敗しました。';
+  message.textContent = 'もう一度開始ボタンを押してください';
+  createStartButton();
 };
 
 const displayQuiz = index => {
