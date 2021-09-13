@@ -37,9 +37,14 @@ const quizStart = () => {
 };
 
 async function getQuizFromApi() {
-  const res = await fetch(quizApiUrl);
-  const data = await res.json();
-  return data;
+  try {
+    const res = await fetch(quizApiUrl);
+    const data = await res.json();
+    return data;
+  } catch (err) {
+    console.log(err);
+    connectException();
+  }
 }
 
 const getQuiz = () => {
@@ -47,8 +52,7 @@ const getQuiz = () => {
   quizIndex = 0;
   getQuizFromApi()
     .then(data => convertJson2Array(data))
-    .then(() => displayQuiz(quizIndex))
-    .catch(err => connectException(err));
+    .then(() => displayQuiz(quizIndex));
 };
 
 const convertJson2Array = jsonObj => {
@@ -57,7 +61,7 @@ const convertJson2Array = jsonObj => {
   });
 };
 
-const connectException = err => {
+const connectException = () => {
   h2.textContent = 'クイズの取得に失敗しました。';
   message.textContent = 'もう一度開始ボタンを押してください';
   createStartButton();
