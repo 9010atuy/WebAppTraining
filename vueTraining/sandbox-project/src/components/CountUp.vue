@@ -24,5 +24,8 @@ export default {
 </script>
 
 <style>
-
+    #count-up{
+        border-top: 2px solid black;
+        padding: 20px 0;
+    }
 </style>
