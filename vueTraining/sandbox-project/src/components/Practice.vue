@@ -3,9 +3,10 @@
         <a v-bind="google">Google</a>
         <br>
         <button v-on:click="countUp">click me!</button>
-        <p>{{count}}</p>
+        <p>{{methodCount}}</p>
         <p>{{descriptCounterMethod(3)}}</p>
-        <p>{{descriptCounterComputed}}</p>
+        <p>{{computedCount}}</p>
+        <p>{{descriptCounterComputed(3)}}</p>
         <p v-on:mousemove="getMousePosition">マウスを動かしてみて</p>
         <p>x: {{eventObj.x}}</p>
         <p>y: {{eventObj.y}}</p>
@@ -19,21 +20,20 @@ export default {
         return{
             google:{href: "https://google.com", id:"google-link"},
             eventObj:{x: 0, y: 0},
-            count: 0,
-            msg: "What's number",
-            number: 5,
+            methodCount: 0,
+            computedCount: 0,
         }
     },
     methods: {
         countUp:function(){
-            this.count++;
+            this.methodCount++;
         },
         getMousePosition:function(event){
             this.eventObj.x = event.x;
             this.eventObj.y = event.y;
         },
         descriptCounterMethod:function(count){
-            if(this.count > count){
+            if(this.methodCount > count){
                 this.msg = `counter: more than ${count}`;
             } else {
                 this.msg = `counter: less than ${count}`;
@@ -43,11 +43,12 @@ export default {
     },
     computed: {
         descriptCounterComputed:function(){
+            let number = this;
             let msg;
-            if(this.count > this.number){
-                msg = `counter: more than ${this.number}`;
+            if(this.computedCount > number){
+                msg = `counter: more than ${number}`;
             } else {
-                msg = `counter: less than ${this.number}`;
+                msg = `counter: less than ${number}`;
             }
             return msg;
         }
