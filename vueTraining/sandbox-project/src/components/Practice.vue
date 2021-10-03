@@ -1,8 +1,13 @@
 <template>
     <div id="practice">
-        <div v-if="result">resulttrue!</div>
-        <div v-else-if="check">checktrue!</div>
-        <div v-else>false!</div>
+        <template v-if="result">
+            <h1>Practice</h1>
+            <ul>
+                <li>ディレクティブ</li>
+                <li>算出プロパティ</li>
+                <li>データ</li>
+            </ul>
+        </template>
     </div>
 </template>
     
@@ -11,7 +16,7 @@ export default {
     name: "Practice",
     data:function(){
         return {
-            result: false,
+            result: true,
             check:true
         }
     }
