@@ -1,5 +1,6 @@
 <template>
     <div id="practice">
+        <button @click="toggle">clcik</button>
         <template v-if="result">
             <h1>Practice</h1>
             <ul>
@@ -8,6 +9,7 @@
                 <li>データ</li>
             </ul>
         </template>
+        <p v-show="result">v-show test</p>
     </div>
 </template>
     
@@ -18,6 +20,11 @@ export default {
         return {
             result: true,
             check:true
+        }
+    },
+    methods:{
+        toggle:function(){
+            this.result = !this.result;
         }
     }
    }
