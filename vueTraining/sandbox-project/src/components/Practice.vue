@@ -4,12 +4,28 @@
         <template v-if="result">
             <h1>Practice</h1>
             <ul>
-                <li>ディレクティブ</li>
-                <li>算出プロパティ</li>
-                <li>データ</li>
+                <li v-for="(subject,index) in subjects" :key="subject">
+                    {{index + ' ' + subject}}
+                </li>
             </ul>
         </template>
         <p v-show="result">v-show test</p>
+        <template v-for="(value, key) in myLabtop">
+            <ul :key="value">
+                <li>
+                    {{key}}:{{value}}
+                </li>
+                <hr/>
+            </ul>
+        </template>
+        <div v-for="todo in todos" :key="todo.id">
+            <p>{{todo}}</p>
+            <select name="status" id="status">
+                <option v-for="status in statuses" :value="status" :key="status">
+                    {{status}}
+                </option>
+            </select>
+        </div>
     </div>
 </template>
     
@@ -19,7 +35,25 @@ export default {
     data:function(){
         return {
             result: true,
-            check:true
+            check:true,
+            subjects:['ディレクティブ', '算出プロパティ', 'データ'],
+            myLabtop:{
+                name: 'mpb pro',
+                size: 15.4,
+                keyLayout: 'JIS',
+                color:'dark-gray',
+            },
+            todos:[
+                '旅行予約内容変更可能確認',
+                'DTDの確立',
+                'DTDの確立',
+                '新規システムの仕様把握方法'
+            ],
+            statuses:[
+                'ToDo',
+                'Doing',
+                'Done'
+            ]
         }
     },
     methods:{
