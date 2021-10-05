@@ -18,6 +18,7 @@
                 <hr/>
             </ul>
         </template>
+        <button @click="remove">remove first todo</button>
         <div v-for="todo in todos" :key="todo.id">
             <p>{{todo}}</p>
             <select name="status" id="status">
@@ -59,6 +60,9 @@ export default {
     methods:{
         toggle:function(){
             this.result = !this.result;
+        },
+        remove:function(){
+            this.todos.shift();
         }
     }
    }
