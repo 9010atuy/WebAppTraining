@@ -55,6 +55,8 @@
 </template>
 
 <script>
+import getYearList from '../definition';
+
 export default {
   name: 'BasicInformationEntry',
   data: () => {
@@ -65,31 +67,7 @@ export default {
     };
   },
   mounted() {
-    this.yearList = this.generateYearList();
-  },
-  methods: {
-    generateYearList: function() {
-      const yearList = [];
-      for (let y = 2021; y > 1921; y--) {
-        if (y > 2018) {
-          yearList.push({
-            year: y,
-            label: `${y} (令和${y - 2018}）`,
-          });
-        } else if (y > 1988) {
-          yearList.push({
-            year: y,
-            label: `${y} (平成${y - 1988}）`,
-          });
-        } else if (y > 1925) {
-          yearList.push({
-            year: y,
-            label: `${y} (昭和${y - 1925}）`,
-          });
-        }
-      }
-      return yearList;
-    },
+    this.yearList = getYearList();
   },
 };
 </script>
