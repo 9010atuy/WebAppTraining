@@ -67,7 +67,7 @@ export default {
     };
   },
   mounted() {
-    this.yearList = getYearList();
+    this.yearList = getYearList;
   },
 };
 </script>

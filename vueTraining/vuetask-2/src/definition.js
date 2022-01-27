@@ -1,6 +1,6 @@
 'use strict';
 
-const getYearList = () => {
+function getYearList() {
   const _yearList = [];
   const currentYear = new Date().getFullYear();
   for (let y = currentYear; y > currentYear - 100; y--) {
@@ -22,6 +22,7 @@ const getYearList = () => {
     }
   }
   return _yearList;
-};
+}
 
-export default getYearList;
+const yearList = getYearList();
+export default yearList;
