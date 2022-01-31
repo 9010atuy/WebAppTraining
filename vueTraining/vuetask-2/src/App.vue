@@ -1,16 +1,25 @@
 <template>
   <div id="app">
+<<<<<<< HEAD
     <EnqueteEntry></EnqueteEntry>
+=======
+    <EnqueteMain />
+>>>>>>> develop
   </div>
 </template>
 
 <script>
+<<<<<<< HEAD
 import EnqueteEntry from './components/EnqueteEntry.vue'
 
+=======
+import EnqueteMain from './components/EnqueteMain.vue';
+>>>>>>> develop
 
 export default {
   name: 'App',
   components: {
+<<<<<<< HEAD
     EnqueteEntry
   }
 }
@@ -24,3 +33,9 @@ export default {
   border: 3px solid aqua;
 }
 </style>
+=======
+    EnqueteMain,
+  },
+};
+</script>
+>>>>>>> develop
