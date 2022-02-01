@@ -28,6 +28,7 @@ export default {
           msg: '以下にお答えください',
         },
         { step: 'step3', icon: 'file-alt', msg: 'ご相談内容をご記入ください' },
+        { step: 'step4', icon: 'file-alt', msg: '以下の内容をご確認ください' },
       ],
       displayData: Object,
     };
