@@ -67,16 +67,13 @@ export default {
       y: '',
       month: '',
       day: '',
-      q1Answer: {
-        sex: String,
-        birthday: String,
-      },
+      sex: '',
     };
   },
-  mounted: function() {
+  mounted() {
     this.yearList = getYearList;
   },
-  destroyed: function() {
+  destroyed() {
     const birthday = `${this.y}年${this.month}月${this.day}日`;
     const sex = this.sex;
     this.$store.commit('savePage1', { sex: sex, birthday: birthday });

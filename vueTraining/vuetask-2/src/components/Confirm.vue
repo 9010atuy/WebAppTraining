@@ -43,21 +43,21 @@ export default {
   computed: {
     getSex: function() {
       let sex = '';
-      if (this.$store.state.sex === 'male') {
+      if (this.$store.getters.sex === 'male') {
         sex = '男性';
-      } else if (this.$store.state.sex === 'female') {
+      } else if (this.$store.getters.sex === 'female') {
         sex = '女性';
       }
       return sex;
     },
     q1Answer: function() {
-      return this.$store.state.a1 === 'true' ? 'はい' : 'いいえ';
+      return this.$store.getters.a1 === 'true' ? 'はい' : 'いいえ';
     },
     q2Answer: function() {
-      return this.$store.state.a2 ? 'はい' : 'いいえ';
+      return this.$store.getters.a2 ? 'はい' : 'いいえ';
     },
     q3Answer: function() {
-      return this.$store.state.a3 === true ? 'はい' : 'いいえ';
+      return this.$store.getters.a3 === true ? 'はい' : 'いいえ';
     },
   },
 };

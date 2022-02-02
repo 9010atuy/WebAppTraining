@@ -14,6 +14,20 @@ export default new Vuex.Store({
     a3: Boolean,
     message: String,
   },
+  getters: {
+    sex: state => {
+      return state.sex;
+    },
+    a1: state => {
+      return state.a1;
+    },
+    a2: state => {
+      return state.a2;
+    },
+    a3: state => {
+      return state.a3;
+    },
+  },
   mutations: {
     pageIncrement(state) {
       state.page++;
