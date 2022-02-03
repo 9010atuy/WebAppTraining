@@ -14,9 +14,16 @@
       />
       <Button
         @forward="forward($event)"
-        v-show="currentPage != 3"
+        v-show="currentPage != 4"
         type="next"
         btnMessage="次へ進む >"
+        class="control"
+      />
+      <Button
+        @forward="forward($event)"
+        v-show="currentPage === 4"
+        type="submit"
+        btnMessage="送信"
         class="control"
       />
     </div>
@@ -57,6 +64,10 @@ export default {
             this.$router.push('/step3');
             this.$store.commit('pageIncrement');
             break;
+          case 3:
+            this.$router.push('/step4');
+            this.$store.commit('pageIncrement');
+            break;
         }
       } else if (el.type === 'prev') {
         switch (this.$store.state.page) {
@@ -66,6 +77,10 @@ export default {
             break;
           case 3:
             this.$router.push('/step2');
+            this.$store.commit('pageDecrement');
+            break;
+          case 4:
+            this.$router.push('/step3');
             this.$store.commit('pageDecrement');
             break;
         }
