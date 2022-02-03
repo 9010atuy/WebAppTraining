@@ -1,21 +1,18 @@
 <template>
   <div id="app">
-    <Product/>
-
+    <Hello />
   </div>
 </template>
 
 <script>
-import Product from './components/Product.vue'
-
+import Hello from './components/Hello.vue';
 
 export default {
   name: 'App',
   components: {
-    Product
-  }
-}
+    Hello,
+  },
+};
 </script>
 
-<style>
-</style>
+<style></style>
