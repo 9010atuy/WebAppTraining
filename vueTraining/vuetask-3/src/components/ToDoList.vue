@@ -1,20 +1,20 @@
 <template>
   <div id="todo-list">
-    <table>
+    <table class="table is-striped">
       <thead>
         <th>ID</th>
         <th>コメント</th>
         <th>状態</th>
       </thead>
       <tbody>
-        <tr v-for="todo in todoList" :key="todo">
-          <td>{{ todo.id }}</td>
+        <tr v-for="(todo, index) in todoList" :key="todo">
+          <td>{{ index + 1 }}</td>
           <td>{{ todo.task }}</td>
           <td>
             <button>{{ todo.status }}</button>
           </td>
           <td>
-            <button>削除</button>
+            <button @click="deleteToDo(index)">削除</button>
           </td>
         </tr>
       </tbody>
@@ -29,6 +29,11 @@ export default {
     return {
       todoList: [],
     };
+  },
+  methods: {
+    deleteToDo: function (index) {
+      this.$store.commit('deleteTask', index);
+    },
   },
   mounted() {
     this.$store.subscribe(mutation => {

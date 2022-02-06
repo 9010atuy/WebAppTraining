@@ -1,13 +1,15 @@
 <template>
   <div id="home">
-    <h1>ToDoリスト</h1>
+    <h1 class="title is-3">ToDoリスト</h1>
     <AddToDo />
-    <input type="radio" name="status" id="all" value="all" checked />
-    <label for="all">すべて</label>
-    <input type="radio" name="status" id="doing" value="doing" />
-    <label for="doing">作業中</label>
-    <input type="radio" name="status" id="done" value="done" />
-    <label for="done">完了</label>
+    <div class="control">
+      <input type="radio" name="status" id="all" value="all" checked />
+      <label for="all">すべて</label>
+      <input type="radio" name="status" id="doing" value="doing" />
+      <label for="doing">作業中</label>
+      <input type="radio" name="status" id="done" value="done" />
+      <label for="done">完了</label>
+    </div>
     <ToDoList />
   </div>
 </template>
@@ -15,7 +17,6 @@
 <script>
 import ToDoList from './ToDoList.vue';
 import AddToDo from './AddTodo.vue';
-
 export default {
   name: 'Home',
   components: {
