@@ -23,7 +23,7 @@ export default {
   methods: {
     addTask: function () {
       const id = this.$store.getters.getId;
-      const todo = { id: id, task: this.task, status: '作業中' };
+      const todo = { id, task: this.task, status: '作業中' };
       this.$store.commit('addTask', todo);
     },
   },
