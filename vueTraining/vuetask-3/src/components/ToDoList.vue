@@ -11,7 +11,7 @@
           <td>{{ index + 1 }}</td>
           <td>{{ todo.task }}</td>
           <td>
-            <button>{{ todo.status }}</button>
+            <button @click="changeStatus(index)">{{ todo.status }}</button>
           </td>
           <td>
             <button @click="deleteToDo(index)">削除</button>
@@ -33,6 +33,10 @@ export default {
   methods: {
     deleteToDo: function (index) {
       this.$store.commit('deleteTask', index);
+    },
+    changeStatus: function (index) {
+      this.$store.commit('changeStatus', index);
+      this.todoList = this.$$store.getters.todoList;
     },
   },
   mounted() {
