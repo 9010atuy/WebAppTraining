@@ -2,26 +2,21 @@
   <div id="home">
     <h1 class="title is-3">ToDoリスト</h1>
     <AddToDo />
-    <div class="control">
-      <input type="radio" name="status" id="all" value="all" checked />
-      <label for="all">すべて</label>
-      <input type="radio" name="status" id="doing" value="doing" />
-      <label for="doing">作業中</label>
-      <input type="radio" name="status" id="done" value="done" />
-      <label for="done">完了</label>
-    </div>
+    <FilterRadio />
     <ToDoList />
   </div>
 </template>
 
 <script>
-import ToDoList from './ToDoList.vue';
-import AddToDo from './AddTodo.vue';
+import ToDoList from "./ToDoList.vue";
+import AddToDo from "./AddTodo.vue";
+import FilterRadio from "./FilterRadio.vue";
 export default {
-  name: 'Home',
+  name: "Home",
   components: {
     ToDoList,
     AddToDo,
+    FilterRadio,
   },
 };
 </script>

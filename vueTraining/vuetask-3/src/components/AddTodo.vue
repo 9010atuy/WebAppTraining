@@ -1,14 +1,14 @@
 <template>
   <div id="add-todo">
     <div class="field">
-      <h2 class="subtitle">タスクの追加</h2>
+      <label class="label">タスクの追加</label>
       <input
         class="input is-small"
         type="text"
         v-model="task"
         ref="inputtask"
       />
-      <button class="button" @click="addTask">追加</button>
+      <button class="button is-primary" @click="addTask">追加</button>
     </div>
   </div>
 </template>
