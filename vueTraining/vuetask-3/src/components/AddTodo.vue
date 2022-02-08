@@ -23,11 +23,12 @@ export default {
   },
   methods: {
     addTask: function () {
-      if (this.task !== '') {
-        const todo = { task: this.task, status: '作業中' };
-        this.$store.commit('addTask', todo);
-        this.task = '';
+      if (this.task === '') {
+        return;
       }
+      const todo = { task: this.task, status: '作業中' };
+      this.$store.commit('addTask', todo);
+      this.task = '';
       this.$refs.inputtask.focus();
     },
   },

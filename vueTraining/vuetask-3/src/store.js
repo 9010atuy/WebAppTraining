@@ -22,7 +22,6 @@ export default new Vuex.Store({
       } else if (todo.status === '完了') {
         todo.status = '作業中';
       }
-      console.log(todo);
       state.todoList[index] = todo;
     },
     filterDoing() {
